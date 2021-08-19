@@ -46,6 +46,7 @@ table {
     border-collapse: collapse;
     counter-reset: date;
 }
+.month { height: 100%; page-break-after: always; }
 .day {
     border: 1px solid black;
     list-style-type: decimal;
