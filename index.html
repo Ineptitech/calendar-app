@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="settings">
+        <h2>Settings</h2>
+        <hr>
+        <form id="form">
+            <label>
+                Month
+                <input type="month" name="month">
+            </label>
+            <input type="text" name="test">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="daysOfWeek" class="daysOfWeek">
+        <div id="mon">
+            <strong>Monday</strong>
+        </div>
+        <div id="tues">
+            <strong>Tuesday</strong>
+        </div>
+        <div id="wed">
+            <strong>Wednesday</strong>
+        </div>
+        <div id="thurs">
+            <strong>Thursday</strong>
+        </div>
+        <div id="fri">
+            <strong>Friday</strong>
+        </div>
+        <div id="sat">
+            <strong>Saturday</strong>
+        </div>
+        <div id="sun">
+            <strong>Sunday</strong>
+        </div>
+    </div>
+    <ol id="january" class="month">
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+    </ol>
+    <ol id="february" class="month">
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+        <li class="day"></li>
+    </ol>
+    <script>
+        document.getElementById("form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log(new FormData(document.getElementById("form")).entries());
+        });
+    </script>
+    <script>
+        Array.from(document.getElementsByClassName("month")).map(el => el.id).forEach(month => 
+        {
+            const startDay = new Date(`${month} 1, ${new Date().getFullYear()}`).getDay() + 1;
+
+            document.querySelectorAll(`#${month.toLocaleLowerCase()} .day`)[0].style = `grid-column-start: ${startDay}`;
+        });
+    </script>
+</body>
+</html>
+
+
+
