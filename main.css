@@ -9,7 +9,7 @@ body {
     height: 100vh;
 }
 .settings {
-    /* display: none; */
+    display: none;
     position: absolute;
     width: 512px;
     max-width: 100vw;
@@ -39,47 +39,21 @@ body {
     transform: rotateZ(180deg);
 }
 
-#daysOfWeek,
-.month {
+table {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-}
-#daysOfWeek div {
-    list-style: none;
-    text-align: center;
-    line-height: 64px;
-}
-#daysOfWeek #sun {
-    order: -1;
-}
-.month {
-    grid-template-rows: auto;
+    height: 100vh;
+    table-layout: fixed;
+    border-collapse: collapse;
     counter-reset: date;
-    height: calc(100% - 64px);
-    page-break-inside: avoid;
-    page-break-after: always;
 }
-.month .day {
-    outline: 1px solid black;
+.day {
+    border: 1px solid black;
     list-style-type: decimal;
     list-style-position: inside;
     counter-increment: date;
     padding: 1em;
+    vertical-align: top;
 }
-.month .day::marker {
-    font-size: 2em;
-}
-
-@media print {
-    #daysOfWeek {
-        position: fixed;
-        top: 0; left: 0; right: 0;
-    }
-    .month {
-        padding-top: 64px;
-    }
-    .settings {
-        display: none;
-    }
+.day::before {
+    content: counter(date);
 }
